@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">AppZing</string>
+    <string name="user">Zing ID</string>
+    <string name="pass">Mật Khẩu</string>
+    <string name="login">Đăng nhập</string>
+    <string name="register">Đăng ký</string>
+    <string name="qmk">Quên mật khẩu</string>
+    <string name="restore">Tìm lại mật khẩu</string>
+    <string name="StringTiepTuc">Tiếp Tục</string>
+    <string name="StringDieuKhoan">Tiếp tục nghĩa là bạn đồng ý với các điều khoản sử dụng</string>
+    <string name="StringNhapSDT">Nhập số điện thoại</string>
+    <string name="dsn">Danh sách nhạc</string>
+</resources>

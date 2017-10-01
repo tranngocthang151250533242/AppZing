@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.jonel.appzing.main.register">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:layout_marginTop="20dp">
+
+
+        <Spinner
+            android:id="@+id/times"
+            android:layout_width="96dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@+id/editText2"/>
+            <!---->
+
+
+        <EditText
+            android:id="@+id/SDT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/StringNhapSDT"
+            android:layout_marginTop="18dp"
+            android:layout_below="@+id/times"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <EditText
+            android:id="@+id/maVung"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Vietnam( +84 )"
+            android:layout_toLeftOf="@+id/times"
+            android:layout_toStartOf="@+id/times" />
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/StringTiepTuc"
+            android:layout_below="@+id/SDT"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="22dp"
+            android:id="@+id/btnDK" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/btnDK"
+            android:layout_marginTop="35dp"
+            android:textColor="#0a0909"
+            android:text="@string/StringDieuKhoan" />
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

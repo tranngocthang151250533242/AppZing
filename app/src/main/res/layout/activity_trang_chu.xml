@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.jonel.appzing.main.trangChu">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+            <ListView
+                android:id="@+id/lv_ms"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+            </ListView>
+        <LinearLayout
+            android:padding="8dp"
+            android:background="#9C27B0"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tenBaiHat"
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                android:text="Tên bài hát"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/tv_tenCaSi"
+                android:textColor="#ffffff"
+                android:textSize="16sp"
+                android:text="Tên ca sĩ"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:background="#9C27B0"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/time1"
+                android:text="00:00"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:textColor="#ffffff"
+                android:layout_height="wrap_content" />
+            <SeekBar
+                android:id="@+id/SeekBar"
+                android:progress="100"
+                android:max="100"
+                android:layout_width="188dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/time2"
+                android:text="00:00"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:textColor="#ffffff"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:background="#9C27B0"
+            android:padding="4dp"
+            android:layout_marginTop="16dp"
+            android:weightSum="7"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/back"
+                android:src="@drawable/skippre"
+                android:padding="8dp"
+                android:layout_margin="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/pause"
+                android:src="@drawable/pause"
+                android:padding="8dp"
+                android:layout_margin="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/play"
+                android:src="@drawable/play"
+                android:padding="8dp"
+                android:layout_margin="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/next"
+                android:src="@drawable/skipnext"
+                android:padding="8dp"
+                android:layout_margin="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/repeat"
+                android:src="@drawable/repeat"
+                android:padding="8dp"
+                android:layout_margin="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
