@@ -6,19 +6,17 @@
     android:layout_height="match_parent"
     tools:context="com.example.jonel.appzing.main.register">
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:layout_marginTop="20dp">
+        android:layout_width="304dp"
+        android:layout_height="493dp"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="8dp">
 
 
         <Spinner
             android:id="@+id/times"
             android:layout_width="96dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignBottom="@+id/editText2"/>
+            android:layout_alignParentRight="true" />
             <!---->
 
 

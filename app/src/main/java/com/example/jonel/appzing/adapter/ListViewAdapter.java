@@ -33,35 +33,36 @@ public class ListViewAdapter extends BaseAdapter {
     }
 
     @Override
-    public String getItem(int i) {
-        return paths.get(i);
+    public String getItem(int position) {
+        return paths.get(position);
     }
 
     @Override
-    public long getItemId(int i) {
-        return 0;
+    public long getItemId(int position) {
+        return position;
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int position, View convertView, ViewGroup parent) {
         Holder holder;
-        if (view == null){
+        if (convertView == null){
             holder = new Holder();
-            view = inflater.inflate(R.layout.activity_nghe_nhac, viewGroup, false);
-            holder.tv_song = (TextView) view.findViewById(R.id.tv_song);
-            holder.tv_artist = (TextView) view.findViewById(R.id.tv_artist);
-            view.getTag(i); // để Holder không được đang để i tạm thời
+            convertView = inflater.inflate(R.layout.activity_nghe_nhac, parent, false);
+            holder.tv_song = (TextView) convertView.findViewById(R.id.tv_song);
+            holder.tv_artist = (TextView) convertView.findViewById(R.id.tv_artist);
+            convertView.getTag();
         }else{
-            holder = (Holder)view.getTag();
+            holder = (Holder)convertView.getTag();
         }
         MediaMetadataRetriever mmr = new MediaMetadataRetriever();
-        mmr.setDataSource(paths.get(i));
+        mmr.setDataSource(paths.get(position));
         String artist = mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ARTIST);
         String title = mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE);
         holder.tv_song.setText(artist);
         holder.tv_artist.setText(title);
-        return null;
+        return convertView;
     }
+
     private class Holder{
         TextView tv_song;
         TextView tv_artist;

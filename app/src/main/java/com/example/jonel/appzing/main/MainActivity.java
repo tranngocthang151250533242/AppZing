@@ -10,19 +10,20 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.jonel.appzing.R;
+import com.example.jonel.appzing.model.SQLite;
 
 
 public class MainActivity extends AppCompatActivity {
     private Button btnDN, regiter, qmk;
     private EditText user,pass;
-    private SQLite db = new SQLite(this, "quanLyDangNhap.sqlite", null ,1);
+    private SQLite db = new SQLite(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         _anhxa();
-        _intent();
+        _Click();
 //        _run();
         // tạo bản
 //        db.QueryData("CREATE TABLE IF NOT EXISTS " +
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public boolean Login(String username, String password) {
-        Cursor mCursor = db.GetData("SELECT * FROM ThanhVien WHERE MaTV="+username+" AND password="+password);
+        Cursor mCursor = db.GetData("SELECT * FROM ThanhVien WHERE MaTV like "+username+" AND password="+password);
         if (mCursor != null) {
             if(mCursor.getCount() > 0)
             {
@@ -45,13 +46,13 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
     public boolean Login1(String username, String password){
-        String a="ngocthang";
-        String b="1";
+        String a="";
+        String b="";
         if (username.equals(a) && password.equals(b))
             return true;
         else return false;
     }
-    public void _intent(){
+    public void _Click(){
         btnDN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -105,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
 //        }
 //        return content.toString();
 //    }
-//    class docJSON extends AsyncTask<String, Integer, String>{
+//    class docJSON extends AsyncTask<String, Integer, String> {
 //
 //        @Override
 //        protected String doInBackground(String... params) {
@@ -114,7 +115,6 @@ public class MainActivity extends AppCompatActivity {
 //
 //        @Override
 //        protected void onPostExecute(String s) {
-//            Toast.makeText(MainActivity.this, s, Toast.LENGTH_SHORT).show();
 //        }
 //    }
 //    public void _run(){

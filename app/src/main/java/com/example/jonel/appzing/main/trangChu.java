@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SeekBar;
@@ -98,7 +99,7 @@ public class trangChu extends AppCompatActivity {
     }
     public void initComponents(){
         initList();
-        adapter = new ListViewAdapter(getApplicationContext(), Paths);
+        ArrayAdapter<String> adapter =new ArrayAdapter<String>(trangChu.this, android.R.layout.simple_list_item_1, Paths);
         lvListMusic.setAdapter(adapter);
     }
 }

@@ -9,8 +9,10 @@
     <RelativeLayout
         android:gravity="center"
         android:background="@color/nen_dn"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="304dp"
+        android:layout_height="493dp"
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="8dp">
 
         <LinearLayout
             android:gravity="center"
