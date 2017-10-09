@@ -40,7 +40,7 @@ public class register extends AppCompatActivity {
             }
         });
     }
-    private Login CreateThanhVien1(){
+    private Login CreateThanhVien(){
         String maVung = MaVung.getText().toString();
         String sdt = String.valueOf(SDT.getText());
         Login login = new Login(maVung,sdt);
