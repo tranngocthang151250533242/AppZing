@@ -90,7 +90,7 @@ public class trangChu extends AppCompatActivity {
         File file = new File(path);
         File files[] = file.listFiles(); // lấy tất cả các file trong thư mục
         for (int i = 1; i<= files.length; i++){
-            // đọc tất cả các file có trong Downloads thêm vào list nhạc
+            // đọc tất cả các file có trong Downloads thêm vào list Nhạc
             String s = files[i].getName();
             if (s.endsWith(".mp3")){ // kiểm tra phải đuôi mp3 không
                 Paths.add(files[i].getAbsolutePath());
