@@ -10,4 +10,6 @@
     <string name="StringDieuKhoan">Tiếp tục nghĩa là bạn đồng ý với các điều khoản sử dụng</string>
     <string name="StringNhapSDT">Nhập số điện thoại</string>
     <string name="dsn">Danh sách nhạc</string>
+    <string name="action_settings">Settings</string>
+
 </resources>
