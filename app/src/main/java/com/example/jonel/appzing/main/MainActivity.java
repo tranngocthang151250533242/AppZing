@@ -9,19 +9,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.jonel.appzing.DangNhap;
 import com.example.jonel.appzing.R;
 
-import static com.example.jonel.appzing.R.id.btnChuyen;
-
 
 public class MainActivity extends AppCompatActivity {
-    private Button next;
-    private TextView imgBaiHat;
+    private TextView tvBaiHat;
+    private LinearLayout thongtin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,31 +44,31 @@ public class MainActivity extends AppCompatActivity {
         // insert
 //        db.QueryData("INSERT INTO ThanhVien VALUES('NgocThang','123','Trần Ngọc Thắng')");
 
-        Toast.makeText(this, "Chào bạn đến với ứng dụng!!!", Toast.LENGTH_SHORT).show();
         // sự kiện đăng nhập
 
     }
     public void _Click(){
         // sự kiện register
-        next.setOnClickListener(new View.OnClickListener() {
+        tvBaiHat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent DangKy = new Intent(MainActivity.this, DangNhap.class);
-                startActivity(DangKy);
-            }
-        });
-        imgBaiHat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent DangKy = new Intent(MainActivity.this, DangNhap.class);
-                startActivity(DangKy);
+                Intent nghenhac = new Intent(MainActivity.this, NgheNhac.class);
+                startActivity(nghenhac);
             }
         // sự kiện quên mật khẩu
     });
+        thongtin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent dangNhap = new Intent(MainActivity.this, DangNhap.class);
+                startActivity(dangNhap);
+            }
+            // sự kiện quên mật khẩu
+        });
     }
     public void _anhxa(){
-        next = (Button) findViewById(btnChuyen);
-        imgBaiHat = (TextView) findViewById(R.id.tvBaiHat);
+        tvBaiHat = (TextView) findViewById(R.id.tvBH);
+        thongtin = (LinearLayout) findViewById(R.id.thongtin);
     }
     // Đọc file từ internet
 //    private String docNoiDung_Tu_URL(String theUrl){

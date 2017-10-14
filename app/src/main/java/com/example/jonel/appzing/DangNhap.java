@@ -22,7 +22,6 @@ public class DangNhap extends AppCompatActivity {
         setContentView(R.layout.activity_dang_nhap);
         _anhxa();
         _Click();
-        Toast.makeText(this, "Chào bạn đến với ứng dụng!!!", Toast.LENGTH_SHORT).show();
     }
     public void _anhxa(){
         user = (EditText) findViewById(R.id.user);

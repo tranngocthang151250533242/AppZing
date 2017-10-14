@@ -18,10 +18,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".main.trangChu" />
         <activity android:name=".main.register" />
         <activity android:name=".main.NgheNhac" />
-        <activity android:name=".DangNhap"></activity>
+        <activity android:name=".DangNhap" />
     </application>
 
 </manifest>
