@@ -45,7 +45,6 @@ public class SQLite extends SQLiteOpenHelper {
         db.insert(TABLE_NAME,null,values);
         db.close();
     }
-
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(SQLQuery);
@@ -54,5 +53,11 @@ public class SQLite extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
+    }
+    public boolean check(String sql){
+        SQLiteDatabase dab = getReadableDatabase();
+        if (dab.rawQuery(sql, null)!=null){
+            return true;
+        }else return false;
     }
 }

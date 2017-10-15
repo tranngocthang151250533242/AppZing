@@ -20,7 +20,8 @@
         </activity>
         <activity android:name=".main.register" />
         <activity android:name=".main.NgheNhac" />
-        <activity android:name=".DangNhap" />
+        <activity android:name=".main.DangNhap" />
+        <activity android:name=".main.TrangChu"></activity>
     </application>
 
 </manifest>

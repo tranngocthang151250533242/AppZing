@@ -1,4 +1,4 @@
-package com.example.jonel.appzing;
+package com.example.jonel.appzing.main;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,8 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.jonel.appzing.main.MainActivity;
-import com.example.jonel.appzing.main.register;
+import com.example.jonel.appzing.R;
 import com.example.jonel.appzing.model.SQLite;
 
 public class DangNhap extends AppCompatActivity {
@@ -39,23 +38,20 @@ public class DangNhap extends AppCompatActivity {
 //        }
 //        return false;
 //    }
-    public boolean Login1(String username, String password){
-        String a="";
-        String b="";
-        if (username.equals(a) && password.equals(b))
-            return true;
-        else return false;
-    }
     public void _Click(){
         btnDN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String tk = user.getText().toString();
                 String pw = pass.getText().toString();
-                if (Login1(tk,pw) == true){
-                    Intent trangChu = new Intent(DangNhap.this, MainActivity.class);
-                    startActivity(trangChu);
-                }else Toast.makeText(DangNhap.this, "Lỗi đăng nhập", Toast.LENGTH_SHORT).show();
+                String a="",b="";
+                if (a.equals(tk)||b.equals(pw))
+                    Toast.makeText(DangNhap.this, "Không được để trống tài khoản hoặc mật khẩu", Toast.LENGTH_SHORT).show();
+                else
+                    if (Login(tk,pw) == true){
+                        Intent trangChu = new Intent(DangNhap.this, MainActivity.class);
+                        startActivity(trangChu);
+                    }else Toast.makeText(DangNhap.this, "Lỗi đăng nhập", Toast.LENGTH_SHORT).show();
             }
         });
         // sự kiện register
@@ -67,5 +63,11 @@ public class DangNhap extends AppCompatActivity {
             }
         });
         // sự kiện quên mật khẩu
+    }
+    public boolean Login(String username, String password){
+        String SQL = "SELECT * FROM thanhvien WHERE maVung = "+"'"+username+"'"+" AND SDT="+"'"+password+"'";
+            if (db.check(SQL)==true)
+                return true;
+            else    return false;
     }
 }
