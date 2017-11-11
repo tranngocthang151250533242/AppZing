@@ -13,41 +13,48 @@
         android:layout_marginTop="10dp">
 
 
-        <Spinner
-            android:id="@+id/times"
-            android:layout_width="96dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true" />
-            <!---->
 
+        <!---->
 
-        <EditText
-            android:id="@+id/SDT"
+        <LinearLayout
+            android:id="@+id/idLN"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/StringNhapSDT"
-            android:layout_marginTop="18dp"
-            android:layout_below="@+id/times"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
-        <EditText
-            android:id="@+id/maVung"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Vietnam( +84 )"
-            android:layout_toLeftOf="@+id/times"
-            android:layout_toStartOf="@+id/times" />
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/TaiKhoan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tài khoản"
+                android:layout_marginTop="18dp"
+                android:layout_below="@+id/times"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+            <EditText
+                android:id="@+id/MatKhau"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nhập mật khẩu"
+                android:layout_marginTop="18dp"
+                android:layout_below="@+id/times"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+            <EditText
+                android:id="@+id/RMatKhau"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nhập lại mật khẩu"
+                android:layout_marginTop="18dp"
+                android:layout_below="@+id/times"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+        </LinearLayout>
         <Button
+
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="@string/StringTiepTuc"
-            android:layout_below="@+id/SDT"
+            android:layout_below="@+id/idLN"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="22dp"
             android:id="@+id/btnDK" />
