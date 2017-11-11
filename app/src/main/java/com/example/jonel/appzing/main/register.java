@@ -12,10 +12,12 @@ import com.example.jonel.appzing.R;
 import com.example.jonel.appzing.model.Login;
 import com.example.jonel.appzing.model.SQLite;
 
+
 public class register extends AppCompatActivity {
     private Button btnDK;
-    private EditText MaVung,SDT;
+    private EditText TaiKhoan,MatKhau,ReMatKhau;
     private SQLite db = new SQLite(this);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,20 +30,21 @@ public class register extends AppCompatActivity {
 
     }
     public void _anhxa(){
-        MaVung = (EditText)findViewById(R.id.maVung);
-        SDT = (EditText)findViewById(R.id.SDT);
+        TaiKhoan = (EditText)findViewById(R.id.TaiKhoan);
+        MatKhau = (EditText)findViewById(R.id.MatKhau);
+        ReMatKhau = (EditText)findViewById(R.id.RMatKhau);
         btnDK = (Button)findViewById(R.id.btnDK);
     }
     public void _click(){
         btnDK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String maVung = MaVung.getText().toString();
-                String sdt = String.valueOf(SDT.getText());
+                String taiKhoan = TaiKhoan.getText().toString();
+                String sdt = String.valueOf(TaiKhoan.getText());
                 String a="",b="";
                 Login add = CreateThanhVien();
                 // kiểm tra nếu tạo Thành viên null thì báo lỗi còn kho
-                if (a.equals(maVung)||b.equals(sdt)){
+                if (a.equals(taiKhoan)||b.equals(sdt)){
                     Toast.makeText(register.this, "Bạn chưa nhập đủ thông tin!!!", Toast.LENGTH_SHORT).show();
                 }
 //                else   if(checkTK(maVung)==true)
@@ -59,9 +62,9 @@ public class register extends AppCompatActivity {
     }
     // hàm tạo tài khoản
     private Login CreateThanhVien(){
-        String maVung = MaVung.getText().toString();
-        String sdt = String.valueOf(SDT.getText());
-        Login register = new Login(maVung,sdt);
+        String taiKhoan = TaiKhoan.getText().toString();
+        String matKhau = String.valueOf(MatKhau.getText());
+        Login register = new Login(taiKhoan,matKhau);
         return register;
     }
     public boolean checkTK(String sdt){
@@ -70,4 +73,6 @@ public class register extends AppCompatActivity {
             return true;
         else    return false;
     }
+
+
 }

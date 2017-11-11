@@ -17,8 +17,13 @@ import org.json.JSONObject;
 
 public class DangNhap extends AppCompatActivity {
     private Button btnDN, regiter, qmk;
-    private EditText user,pass;
-//    private SQLite db = new SQLite(this);
+    private EditText user, pass;
+    String tk;
+    String pw;
+    String userID = "";
+    String userPassword = "";
+    String MangTV[];
+    //    private SQLite db = new SQLite(this);
     private static String url = "https://117accept.000webhostapp.com/display.php";
     // JSON Node names
     private static final String TAG_CONTACTS = "accounts";
@@ -28,25 +33,21 @@ public class DangNhap extends AppCompatActivity {
     JSONArray contacts = null;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dang_nhap);
         _anhxa();
-        ChayJSON();
         _Click();
     }
 
 
-
-    public void _anhxa(){
+    public void _anhxa() {
         user = (EditText) findViewById(R.id.user);
         pass = (EditText) findViewById(R.id.password);
         btnDN = (Button) findViewById(R.id.btnDN);
         regiter = (Button) findViewById(R.id.regiter);
     }
-
 
 
 //    public boolean Login(String username, String password) {
@@ -61,20 +62,21 @@ public class DangNhap extends AppCompatActivity {
 //    }
 
 
-    public void _Click(){
+    public void _Click() {
         btnDN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String tk = user.getText().toString();
-                String pw = pass.getText().toString();
-                String a="",b="";
-                if (a.equals(tk)||b.equals(pw))
+                tk = user.getText().toString();     // lấy giá trị trong EditText
+                pw = pass.getText().toString();
+                ChayJSON();
+                String a = "", b = "";
+                if (a.equals(tk) || b.equals(pw))
                     Toast.makeText(DangNhap.this, "Không được để trống tài khoản hoặc mật khẩu", Toast.LENGTH_SHORT).show();
-                else
-                    if (a == b){
-                        Intent trangChu = new Intent(DangNhap.this, MainActivity.class);
-                        startActivity(trangChu);
-                    }else Toast.makeText(DangNhap.this, "Lỗi đăng nhập", Toast.LENGTH_SHORT).show();
+                else if (tk.equals(userID) & pw.equals(userPassword)) {
+                    Toast.makeText(DangNhap.this, "Đăng nhập thành công!!!", Toast.LENGTH_SHORT).show();
+                    Intent trangChu = new Intent(DangNhap.this, MainActivity.class);
+                    startActivity(trangChu);
+                } else Toast.makeText(DangNhap.this, "Lỗi đăng nhập", Toast.LENGTH_SHORT).show();
             }
         });
         // sự kiện register
@@ -95,36 +97,37 @@ public class DangNhap extends AppCompatActivity {
 //    }
 
     // Json
-    public void ChayJSON(){
-        JSONParser jsonparse=new JSONParser();
+    public void ChayJSON() {
+        JSONParser jsonparse = new JSONParser();
         //lay doi tuong json
-        JSONObject jsonobject=jsonparse.getJSONFromUrl(url);
+        JSONObject jsonobject = jsonparse.getJSONFromUrl(url);
 
-        try{
+        try {
             //tao mang contacts
-            contacts=jsonobject.getJSONArray(TAG_CONTACTS);
+            contacts = jsonobject.getJSONArray(TAG_CONTACTS);
 
             //duyet tung contacts
-            for(int i=0;i<contacts.length();i++)
-            {
+            for (int i = 0; i < contacts.length(); i++) {
                 //lay ra mot doi tuong contact
-                JSONObject onecontact=contacts.getJSONObject(i);
+                JSONObject onecontact = contacts.getJSONObject(i);
 
                 //lay du lieu
-                String user=onecontact.getString(TAG_USER);
-                String pass=onecontact.getString(TAG_PASS);
+                userID = onecontact.getString(TAG_USER);
+                userPassword = onecontact.getString(TAG_PASS);
+                // check tài khoản mật khẩu để đá ra khỏi vòng for với giá trị user pass
+                if (userID.equals(tk) & pw.equals(userPassword)) {
+                    break;
+                }
                 //so phone la la json Object
 //                JSONObject phone=onecontact.getJSONObject(TAG_PHONE);
 //                String mobile=phone.getString(TAG_PHONE_MOBILE);
 //                String home=phone.getString(TAG_PHONE_HOME);
 //                String office=phone.getString(TAG_PHONE_OFFICE);
-
-                Log.d("dulieu","user: "+user +" pass:"+pass);
+                Log.d("dulieu", "user: " + user + " pass:" + pass);
             }
 
-        }catch(Exception e)
-        {
-            Log.d("loi",e.toString());
+        } catch (Exception e) {
+            Log.d("loi", e.toString());
         }
 
     }
